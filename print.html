@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Bill </title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+<a href="https://www.flaticon.com/free-icons/phone-call" title="phone call icons"></a>
+		<style>
+            .bill{
+            	
+            	border: solid  2px black;
+ 
+            }
+            .header{
+            	display: flex;
+            	height: 90px;
+            	background-color: yellow;
+            	padding: 30px;
+            	flex-direction: row;
+            	justify-content: space-between;
+            	align-items: center;
+            	vertical-align: middle;
+
+            }
+            .logo{
+            	padding-left: 40px;
+            	margin-bottom: 0;
+            	max-height: 140px;
+
+            }
+            .name{
+            	margin-right: auto;
+            	margin-left: auto;
+            	font-size: 55px;
+            	font-weight: bold;
+            	color: #091d7a;
+            }
+            .logo-img{
+            	max-height: 120px;
+            	min-height: 50px;
+            	padding: 10px;
+            	 }
+            	 .details{
+            	 	padding-top: 30px;
+            	 	background-color: yellow;
+            	 	padding-bottom: 20px;
+            	 	font-weight: bold;
+            	 	display: grid;
+            	 	grid-template-columns: 1fr 1fr 1fr;
+            	 	font-size: 22px;
+                    padding-left: 100px;
+            	 }
+            	 .content{
+            	 	margin-top: 50px;
+            	 	display: grid;
+                    grid-template-columns: 1fr 100px 100px 100px;
+                    padding: 30px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    row-gap: 25px;
+                    margin-bottom: 50px;
+            	 }
+
+            	 .heading{
+            	 	font-size: 25px;
+            	 	font-weight: bold;
+            	 }
+
+            	 .footer{
+            	 	padding: 30px;
+            	 	display: grid;
+            	 	grid-template-columns: 1fr 1fr;
+                    margin-bottom: 50px;
+            	 	  }
+            	 .customer{
+            	 	display: inline-grid;
+            	 	grid-template-columns: 1fr ;
+            	 	font-size: 25px;
+            	 	row-gap: 15px;
+            	 	align-items: stretch;
+            	 	justify-content: space-between;
+            	 }
+
+            	 .money{
+            	 	display: inline-grid;
+                    
+                    
+                    grid-template-columns: 1fr;
+                    font-size: 23px;
+                    row-gap: 15px;
+            	 }
+            	 .price{
+            	 	color: white;
+            	 	background-color: blue;
+            	 	padding: 6px;
+            	 }
+            	 .centered-div{
+            	  display: block;
+            	  width: 250px;
+            	  margin-right: auto;
+            	  margin-left: auto;
+            	  font-family: Dancing Script;
+            	  font-weight: 700;
+            	  font-size: 30px;
+            	  color: bold;
+            	 }
+
+            	 .company-details{
+            	 	margin-top: 100px;
+            	 	display: grid;
+            	 	grid-template-columns: 1fr 1fr 1fr ;
+                    margin-bottom: 15px;
+                    margin-left: 10px;
+                    margin-right: 15px;
+                    padding: 10PX;
+                    align-items: center;
+                    justify-items: center;
+                    
+                    font-weight: bold;
+                    font-size: 22px;
+                    column-gap: 50px;
+            	 }
+
+            	 .call{
+            	 	width: 40px;
+            	 }
+            	
+		</style>
+	</head>
+
+	<body>
+		
+		<div  class="bill">
+			<div class="header">
+				<div class="logo">
+					
+				</div>
+				<div class="name"></div>
+          
+
+			</div>
+			      <div class="details">
+                	<div>Invoice No: 193</div>
+                	<div>Date:</div>
+                	<div>Order Id:</div>
+                </div>
+			<hr style="height: 4px; background-color: grey; border: solid 1px black; margin-top: 0;">
+			<div class="content">
+				<div class="heading">Particulars <hr></div>
+				<div class="heading">Price <hr></div>
+				<div class="heading">QTY <hr></div>
+				<div class="heading">Total
+					<hr>
+				</div>
+                  
+			</div>
+			<div class="footer">
+				<div class="customer">
+			
+					
+				</div>
+				<div class="money">
+					<div><b>Total :</b> &#160;&#160; (Inclusive Tax)</div>
+					<div class="price"></div>
+
+				</div>
+			</div>
+			
+				<div class="centered-div">
+					Thanks For Visting<br>
+					Visit Again Soon
+				</div>
+
+				<div class="company-details">
+					
+					
+			
+		</div>
+
+<script src="company details.js"></script>
+<script src="bill.js"></script>
+<script>
+	let orderSummary=``
+	let Contact;
+	let Email = ''
+	let Address = ''
+	console.log(companyDetails)
+	console.log(Items)
+	console.log(CustomerDetails)
+	companyDetails.forEach((detail)=>{
+			document.querySelector('.logo').innerHTML = `
+	<img class="logo-img" src="${detail.companyLogo}">
+	`
+	document.querySelector('.name').innerHTML=`${detail.companyName}`
+	Contact = detail.companyNumber
+	Email = detail.companyEmail
+	Address = detail.companyAddress
+	})
+	Items.forEach((item) => {
+		let HTML = `
+		<div>${item.productName}</div>
+		<div>${item.productUSP}</div>
+		<div>${item.productQuantity}</div>
+		<div>${item.productTotal}</div>
+		`
+		orderSummary += HTML
+	})
+	document.querySelector('.content').innerHTML += orderSummary
+	CustomerDetails.forEach((detail)=>{
+		document.querySelector('.customer').innerHTML = `
+		<div><b>Bill To:</b>&#160;&#160;${detail.customerName}</div>
+		<div><b>Email:</b>&#160;&#160;${detail.customerEmail}</div>
+		`
+	document.querySelector('.price').innerHTML = `<b>$${detail.Total}</b>`	
+	})
+	document.querySelector('.company-details').innerHTML = `
+	      <div>
+						<img src="telephone.png" class="call" align="center"> 
+						${Contact}
+					</div>
+					<div>
+						<img src="gmail.png" class="call" align="center"> 
+						${Email}
+					</div>
+					<div>
+						<img src="shops.png" class="call" align="center">
+						${Address}
+					</div>
+				</div>
+	`
+
+
+</script>
+</body>
+</html>
